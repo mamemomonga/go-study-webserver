@@ -22,7 +22,7 @@ func (this *Webserver) RunServer() (err error) {
 	err = nil
 	http.HandleFunc("/", this.putMessage)
 
-	log.Printf("Start Listening at http://%s/",this.listen)
+	log.Printf("Start Listening at http://%s/", this.listen)
 	err = http.ListenAndServe(this.listen, nil)
 	return
 }
@@ -31,4 +31,3 @@ func (this *Webserver) putMessage(w http.ResponseWriter, r *http.Request) {
 	log.Printf("PATH: %s", r.URL.Path)
 	fmt.Fprintf(w, this.Message)
 }
-

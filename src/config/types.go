@@ -17,4 +17,3 @@ type WebServer struct {
 type Config struct {
 	Webserver WebServer
 }
-
