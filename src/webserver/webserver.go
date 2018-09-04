@@ -6,11 +6,15 @@ import (
 	"net/http"
 )
 
+// クラスメンバー
 type Webserver struct {
+	// 先頭大文字は別パッケージからアクセスできる
 	Message string
+	// 先頭込み時は別パッケージからアクセスできない
 	listen  string
 }
 
+// コンストラクタ
 func NewWebserver(listen string) (this *Webserver, err error) {
 	err = nil
 	this = new(Webserver)
@@ -18,6 +22,7 @@ func NewWebserver(listen string) (this *Webserver, err error) {
 	return
 }
 
+// 先頭に「レシーバ」をつけるとメソッドになる(?)
 func (this *Webserver) RunServer() (err error) {
 	err = nil
 	http.HandleFunc("/", this.putMessage)
